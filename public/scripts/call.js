@@ -20,7 +20,7 @@ function call_accept(un2) {
 	call_incoming.answer(stream_local);
 
 	call_incoming.on('stream', function(stream) {
-		document.getElementsByClassName("video remote").srcObject = stream;
+		document.getElementsByClassName("video remote")[0].srcObject = stream;
 	});
 
 	document.getElementsByClassName("incoming_call_container")[0].removeChild(document.getElementsByClassName("incoming " + conn.peer)[0]);
