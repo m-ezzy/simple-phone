@@ -1,6 +1,7 @@
 import path from 'path';
 import url from 'url';
 import http from 'http';
+import https from 'https';
 import express from "express";
 import peer from 'peer';
 import cookieParser from 'cookie-parser';
@@ -8,7 +9,7 @@ import cookieParser from 'cookie-parser';
 import routes from "./routes/default.js";
 
 const app = express();
-const server = http.createServer(app);
+const server = https.createServer(app);
 const port = process.env.PORT || "8000";
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,7 +18,7 @@ const peerServer = peer.ExpressPeerServer(server, {
 	proxied: true,
 	debug: true,
 	path: '/call',
-	port: port,
+	port: 443,
 	ssl: {}
 });
 

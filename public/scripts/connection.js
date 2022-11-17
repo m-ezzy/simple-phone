@@ -15,7 +15,7 @@ const peer = new Peer(getCookie("user_name"), {
 	host: location.hostname, //"localhost" //"peer-server-1.herokuapp.com" //window.location.hostname
 	debug: 1,
 	path: '/call',
-	port: 8000
+	port: 443
 });
 
 let stream_local;
