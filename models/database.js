@@ -11,7 +11,7 @@ let db_name = "simple-phone";
 let server_name = "sql.freedb.tech";
 let db_user_name = "freedb_jkhvcvnb";
 let db_pass_word = "Ttkr?a**ugrP445";
-let db_name = "simple-phone";
+let db_name = "freedb_skyland";
 
 
 var db = mysql.createConnection({
