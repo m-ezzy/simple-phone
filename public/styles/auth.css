@@ -1,0 +1,32 @@
+* {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#container {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background-image: url("../assets/images/bg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+form {
+    position: relative;
+    left: 10%;
+    top: 10%;
+    width: 40%;
+    height: 50%;
+    backdrop-filter: blur( 10px );
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+input {
+    width: 20%;
+    height: 10%;
+    display: flex;
+}
