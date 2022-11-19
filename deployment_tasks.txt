@@ -1,0 +1,6 @@
+following are the changes to make before deploying app on any domain
+
+1. change database variables to remote database
+2. change port number to 443 in index.js file of server
+3. change port number to 443 in Peer declaration
+4. comment out offline peer library path in index html file, uncomment online delivery content peer library

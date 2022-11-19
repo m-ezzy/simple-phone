@@ -4,27 +4,30 @@
 	padding: 0;
 	box-sizing: border-box;
 	/*background-color: rgb(112, 112, 112);*/
-	color: rgb(197, 197, 197);
-	font-size: 4vmin;
-	font-weight: 800;
-	backdrop-filter: blur( 10px );
+	color: rgb(3, 3, 3);
+	font-family: 'Trebuchet MS';
+	font-size: 5vmin;
+	font-weight: 1000;
+}
+div , input , video {
+	border: 1px solid rgb(0, 0, 0);
 	border-radius: 10px;
+	box-shadow: 10px 10px 20px black;
 }
 div , input {
-	background-color: rgba(32, 32, 32, 0.1);
-	border: 0.5vh solid rgb(0, 0, 0);
-	box-shadow: outset, black;
-}
+	background-color: rgba(95, 95, 95, 0.2);
+	backdrop-filter: blur( 5px );
+}/*
 body {
 	border-radius: 0;
-}
+}*/
 #container {
 	position: relative;
 	left: 0;
 	top: 0;
 	width: 100vw;
 	height: 100vh;
-	background-image: url("../assets/images/bg.jpg");
+	background-image: url("../assets/images/21.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	border-radius: 0;
@@ -36,6 +39,7 @@ body {
 	width: 30%;
 	height: 10%;
 	background-color: rgb(0, 0, 0, 0);
+	text-indent: 2vh;
 }
 #search_results {
 	position: relative;
@@ -54,6 +58,7 @@ body {
 	margin-top: 2vh;
 	display: flex;
 	align-items: center;
+	text-indent: 2vh;
 }/*
 .user_info {
 	position: relative;
@@ -66,26 +71,43 @@ body {
 	position: absolute;
 	right: 2%;
 	/*top: 0;*/
-	width: 30%;
+	width: 15%;
 	height: 80%;
 	background-image: url("../assets/images/call_video.png");
 	background-repeat: no-repeat;
 	background-size: contain;
+	animation: scaler 0.5s ease-in-out 0s 1;
+	animation-play-state: paused;
+}
+@keyframes scaler {
+	0% {
+		transform: scale(100%);
+	}
+	50% {
+		transform: scale(60%);
+	}
+	100% {
+		transform: scale(100%);
+	}
 }
 .call_area {
 	position: absolute;
-	left: 35%;
+	left: 35vw;
 	top: 5vh;
 	width: 62%;
 	height: 75%;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	/*flex-direction: column;*/
+	flex-wrap: wrap;
+	align-items: flex-start;
 	/*justify-content: center;*/
+	overflow-y: auto;
 }
 .video {
 	position: relative;
 	display: flex;
+	margin-left: 5vh;
+	margin-top: 5vh;
 }
 .controller {
 	position: absolute;
@@ -98,22 +120,19 @@ body {
 	flex-wrap: nowrap;
 	visibility: hidden;
 }
-.button.call_end {
+.controller > .button {
 	position: relative;
-	left: 1vh;
+	left: 0;
 	top: 10%;
-	width: 20%;
+	width: 15%;
 	height: 80%;
-	background-color: red;
+	margin-left: 2vh;
+	display: flex;
+	align-items: center; /*y*/
+	justify-content: center; /*x*/
 }
-.button.canvas {
-	position: relative;
-	left: 1vh;
-	top: 10%;
-	width: 20%;
-	height: 80%;
-	margin-left: 1vw;
-	background-color: yellow;
+.button.call_end {
+	background-color: rgb(255, 56, 56);
 }
 .incoming_call_container {
 	position: absolute;
@@ -121,16 +140,16 @@ body {
 	top: 5vw;
 	width: 60vw;
 	height: max-content;
-	padding-bottom: 4vh;
+	padding-bottom: 2vh;
 	visibility: hidden;
 	display: flex;
 	align-items: center;
 }
 .incoming_call_container>div {
 	position: relative;
-	left: 5%;
-	top: 5%;
-	width: 90%;
+	left: 2vh;
+	top: 0vh;
+	width: 96%;
 	height: 10vh;
 	margin-top: 2vh;
 	display: flex;
@@ -139,21 +158,32 @@ body {
 .button.accept {
 	display: flex;
 	position: absolute;
-	right: 30%;
+	right: 19%;
 	top: 10%;
-	width: 20%;
+	width: 15%;
 	height: 80%;
-	background-color: green;
+	background-color: rgb(56, 255, 56);
 }
 .button.decline {
 	display: flex;
 	position: absolute;
-	right: 5%;
+	right: 2%;
 	top: 10%;
-	width: 20%;
+	width: 15%;
 	height: 80%;
-	background-color: red;
+	background-color: rgb(255, 56, 56);
+}
+.button.theme {
+	position: absolute;
+	left: 94vw;
+	top: 94vh;
+	width: 6vw;
+	height: 6vh;
+	visibility: hidden;
 }
 
-
+.button {
+	align-items: center; /*y*/
+	justify-content: center; /*x*/
+}
 
