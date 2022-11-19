@@ -19,9 +19,9 @@ const peer = new Peer(getCookie("user_name"), {
 });
 
 let stream_local;
-let conn;
-let call_incoming;
-let call_outgoing;
+let conn = {};
+let call_incoming = {};
+let call_outgoing = {};
 
 navigator.mediaDevices.getUserMedia({video: true, audio: true}).then((stream) => {
 	stream_local = stream;
@@ -32,11 +32,11 @@ peer.on('open', function () {
 	console.log("peer is open! peer id = " + peer.id);
 });
 peer.on('connection', function(connection){
-    conn = connection;
+    conn[connection.peer] = connection;
 });
 peer.on('call', function(call) {
 	/*console.log(conn, call);*/
-	call_incoming = call;
-	create_incoming_call_item(conn);
+	call_incoming[call.metadata.user_name] = call;
+	create_incoming_call_item(call.metadata.user_name);
 	document.getElementsByClassName("incoming_call_container")[0].style.visibility = "visible";
 });

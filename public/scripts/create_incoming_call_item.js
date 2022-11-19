@@ -1,17 +1,18 @@
-function create_incoming_call_item(conn) {
+function create_incoming_call_item(un2) {
 	let div = document.createElement("div");
 	let accept = document.createElement("div");
 	let decline = document.createElement("div");
 
-	let text = document.createTextNode(conn.peer);
+	let text = document.createTextNode(un2);
 	let text2 = document.createTextNode("accept");
 	let text3 = document.createTextNode("decline");
 
-	div.className = "incoming " + conn.peer;
+	div.className = "incoming_call_item";
+	div.id = "incoming_" + un2;
 	accept.className = "button accept";
 	decline.className = "button decline";
-	accept.setAttribute("onclick", `accept_call('${conn.peer}')`);
-	decline.setAttribute("onclick", `decline_call('${conn.peer}')`);
+	accept.setAttribute("onclick", `accept_call('${un2}')`);
+	decline.setAttribute("onclick", `decline_call('${un2}')`);
 
 	accept.appendChild(text2);
 	decline.appendChild(text3);

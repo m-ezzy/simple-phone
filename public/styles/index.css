@@ -76,19 +76,6 @@ body {
 	background-image: url("../assets/images/call_video.png");
 	background-repeat: no-repeat;
 	background-size: contain;
-	animation: scaler 0.5s ease-in-out 0s 1;
-	animation-play-state: paused;
-}
-@keyframes scaler {
-	0% {
-		transform: scale(100%);
-	}
-	50% {
-		transform: scale(60%);
-	}
-	100% {
-		transform: scale(100%);
-	}
 }
 .call_area {
 	position: absolute;
@@ -143,11 +130,14 @@ body {
 	padding-bottom: 2vh;
 	visibility: hidden;
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center; /*y*/
+	justify-content: center; /*x*/
 }
-.incoming_call_container>div {
+.incoming_call_item {
 	position: relative;
-	left: 2vh;
+	left: 0vh;
 	top: 0vh;
 	width: 96%;
 	height: 10vh;
@@ -185,5 +175,20 @@ body {
 .button {
 	align-items: center; /*y*/
 	justify-content: center; /*x*/
+	/*animation: scaler 0.5s ease-in-out 0s 1;*/
+	/*animation-play-state: paused;*/
 }
-
+.button:hover {
+	transform: scale(110%);
+}/*
+@keyframes scaler {
+	0% {
+		transform: scale(100%);
+	}
+	50% {
+		transform: scale(60%);
+	}
+	100% {
+		transform: scale(100%);
+	}
+}*/

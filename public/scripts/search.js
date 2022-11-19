@@ -17,7 +17,7 @@ async function search() {
 
 		div.className = "search_item";
 		button.className = "button call_make";
-		button.setAttribute("onclick", `make_call('${v.user_name}', this)`);
+		button.setAttribute("onclick", `make_call('${v.user_name}')`);
 
 		div.appendChild(text);
 		div.appendChild(button);
