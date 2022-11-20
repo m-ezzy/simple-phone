@@ -10,12 +10,12 @@
 	font-weight: 1000;
 }
 div , input , video {
-	border: 1px solid rgb(0, 0, 0);
 	border-radius: 10px;
-	box-shadow: 10px 10px 20px black;
 }
 div , input {
 	background-color: rgba(95, 95, 95, 0.2);
+	border: 1px solid rgb(0, 0, 0);
+	box-shadow: 10px 10px 20px black;
 	backdrop-filter: blur( 5px );
 }/*
 body {
@@ -58,7 +58,7 @@ body {
 	margin-top: 2vh;
 	display: flex;
 	align-items: center;
-	text-indent: 2vh;
+	padding-left: 2vh;
 }/*
 .user_info {
 	position: relative;
@@ -71,11 +71,9 @@ body {
 	position: absolute;
 	right: 2%;
 	/*top: 0;*/
-	width: 15%;
+	width: max-content;
 	height: 80%;
-	background-image: url("../assets/images/call_video.png");
-	background-repeat: no-repeat;
-	background-size: contain;
+	padding: 1vh;
 }
 .call_area {
 	position: absolute;
@@ -86,15 +84,29 @@ body {
 	display: flex;
 	/*flex-direction: column;*/
 	flex-wrap: wrap;
-	align-items: flex-start;
+	/*align-items: flex-start;*/
 	/*justify-content: center;*/
 	overflow-y: auto;
 }
-.video {
+.video_item {
 	position: relative;
-	display: flex;
+	left: 0;
+	top: 0;
+	width: 40%;
+	height: 60%;
 	margin-left: 5vh;
 	margin-top: 5vh;
+	text-indent: 2vh;
+	display: flex;
+	justify-content: flex-start;
+}
+.video {
+	position: absolute;
+	bottom: 0;
+	/*width: 100%;
+	height: 90%;*/
+	display: flex;
+	/*object-fit: contain;*/
 }
 .controller {
 	position: absolute;
@@ -173,6 +185,7 @@ body {
 }
 
 .button {
+	display: flex;
 	align-items: center; /*y*/
 	justify-content: center; /*x*/
 	/*animation: scaler 0.5s ease-in-out 0s 1;*/

@@ -12,6 +12,11 @@ function make_call(un2) {
 	}
 
 	conn[un2] = peer.connect(un2);
+	conn[un2].on("data", (data) => {
+		console.log(data);
+		handle_conn_data(data);
+	});
+
 	call_outgoing[un2] = peer.call(un2, stream_local, {metadata: {"user_name": getCookie("user_name"), "group_call_users": users}});
 
 	call_outgoing[un2].on('stream', function(stream) {

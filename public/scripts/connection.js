@@ -13,7 +13,7 @@ function getCookie(cookie_key) {
 
 const peer = new Peer(getCookie("user_name"), {
 	host: location.hostname, //"localhost" //"peer-server-1.herokuapp.com" //window.location.hostname
-	debug: 1,
+	debug: 3,
 	path: '/call',
 	port: 443 //8000 //443
 });
@@ -31,8 +31,15 @@ navigator.mediaDevices.getUserMedia({video: true, audio: true}).then((stream) =>
 peer.on('open', function () {
 	console.log("peer is open! peer id = " + peer.id);
 });
-peer.on('connection', function(connection){
-    conn[connection.peer] = connection;
+peer.on('connection', (connection) => {
+	console.log(connection);
+	conn[connection.peer] = connection;
+
+	connection.on("data", (data) => {
+		console.log(data);
+		console.log("1234");
+		handle_conn_data(data);
+	});
 });
 peer.on('call', function(call) {
 	/*console.log(conn, call);*/

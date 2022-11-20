@@ -15,8 +15,8 @@ const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const peerServer = peer.ExpressPeerServer(server, {
-	proxied: true,
-	debug: true,
+	/*proxied: true,*/
+	debug: 3,
 	path: '/call',
 	port: 443, //8000 //443
 	ssl: {}

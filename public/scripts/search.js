@@ -14,11 +14,13 @@ async function search() {
 		let div = document.createElement("div");
 		let button = document.createElement("div");
 		let text = document.createTextNode(v.user_name);
+		let text2 = document.createTextNode("call");
 
 		div.className = "search_item";
 		button.className = "button call_make";
 		button.setAttribute("onclick", `make_call('${v.user_name}')`);
 
+		button.appendChild(text2);
 		div.appendChild(text);
 		div.appendChild(button);
 		document.getElementById("search_results").appendChild(div);
