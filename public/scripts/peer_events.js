@@ -1,27 +1,17 @@
-function getCookie(cookie_key) {
-	const name = cookie_key + "=";
-	const cDecoded = decodeURIComponent(document.cookie); //to be careful
-	const cArr = cDecoded.split('; ');
-	let res = '';
-	cArr.forEach(val => {
-		if (val.indexOf(name) === 0) {
-			res = val.substring(name.length);
-		}
-	});
-	return res;
-}
-
 const peer = new Peer(getCookie("user_name"), {
 	host: location.hostname, //"localhost" //"peer-server-1.herokuapp.com" //window.location.hostname
-	debug: 3,
-	path: '/call',
-	port: 443 //8000 //443
+	debug: 2, //0 no logs //1 only errors //2 errors and warnings //3 all logs
+	path: '/peer',
+	port: (location.protocol == "http:") ? 8000 : 443 //8000 //443
 });
 
-let stream_local;
+console.log(location.protocol);
+
+let stream_local = new MediaStream();
 let conn = {};
 let call_incoming = {};
 let call_outgoing = {};
+let currently_speaking = "";
 
 navigator.mediaDevices.getUserMedia({video: true, audio: true}).then((stream) => {
 	stream_local = stream;
@@ -36,14 +26,9 @@ peer.on('connection', (connection) => {
 	conn[connection.peer] = connection;
 
 	connection.on("data", (data) => {
-		console.log(data);
-		console.log("1234");
 		handle_conn_data(data);
 	});
 });
 peer.on('call', function(call) {
-	/*console.log(conn, call);*/
-	call_incoming[call.metadata.user_name] = call;
-	create_incoming_call_item(call.metadata.user_name);
-	document.getElementsByClassName("incoming_call_container")[0].style.visibility = "visible";
+	handle_incoming_call(call);
 });

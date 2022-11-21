@@ -4,7 +4,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	/*background-color: rgb(112, 112, 112);*/
-	color: rgb(3, 3, 3);
+	color: rgb(0, 0, 0);
 	font-family: 'Trebuchet MS';
 	font-size: 5vmin;
 	font-weight: 1000;
@@ -15,7 +15,7 @@ div , input , video {
 div , input {
 	background-color: rgba(95, 95, 95, 0.2);
 	border: 1px solid rgb(0, 0, 0);
-	box-shadow: 10px 10px 20px black;
+	box-shadow: 5px 5px 5px rgb(0, 0, 0);
 	backdrop-filter: blur( 5px );
 }/*
 body {
@@ -32,55 +32,68 @@ body {
 	background-size: cover;
 	border-radius: 0;
 }
+#text_search, .controller {
+	height: 10%;
+}
 #text_search {
 	position: relative;
 	left: 5vh;
 	top: 5vh;
 	width: 30%;
-	height: 10%;
 	background-color: rgb(0, 0, 0, 0);
 	text-indent: 2vh;
 }
-#search_results {
+.list.search, .list_video_container, canvas {
+	height: 75%;
+}
+.list.search {
 	position: relative;
 	left: 5vh;
 	top: 10vh;
 	width: 30%;
-	height: 75%;
 	overflow-y: visible;
 }
-.search_item {
+.item.search, .item_incoming_call {
 	position: relative;
+	height: 10vh;
+	margin-top: 2vh;
+	padding-left: 2vh;
+	display: flex;
+	align-items: center; /*y*/
+}
+.item.search {
 	left: 2vh;
 	top: 2vh;
 	width: 92%;
-	height: 10vh;
-	margin-top: 2vh;
-	display: flex;
-	align-items: center;
-	padding-left: 2vh;
-}/*
-.user_info {
-	position: relative;
-	left: 0;
-	top: 0;
-	width: 50%;
-	height: 10vh;
-}*/
-.button.call_make {
-	position: absolute;
-	right: 2%;
-	/*top: 0;*/
-	width: max-content;
-	height: 80%;
-	padding: 1vh;
 }
-.call_area {
+.list_incoming_call, .list_video_container, canvas {
 	position: absolute;
 	left: 35vw;
 	top: 5vh;
 	width: 62%;
-	height: 75%;
+	display: flex;
+}
+.list_incoming_call, .controller, canvas {
+	visibility: hidden;
+}
+.list_incoming_call {
+	height: max-content;
+	/*margin-left: 2vh;*/
+	padding-bottom: 2vh;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center; /*y*/
+	justify-content: center; /*x*/
+}
+.item_incoming_call {
+	left: 0vh;
+	top: 0vh;
+	width: 96%;
+	/*justify-content: flex-end;*/
+}
+.list_video_container {
+	/*z-index: 4;*/
 	display: flex;
 	/*flex-direction: column;*/
 	flex-wrap: wrap;
@@ -88,19 +101,23 @@ body {
 	/*justify-content: center;*/
 	overflow-y: auto;
 }
-.video_item {
+canvas {
+	display: flex;
+	z-index: 5;
+}
+.item_video_container {
 	position: relative;
 	left: 0;
 	top: 0;
 	width: 40%;
 	height: 60%;
-	margin-left: 5vh;
-	margin-top: 5vh;
+	margin-left: 2vh;
+	margin-top: 2vh;
 	text-indent: 2vh;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: flex-start; /*x*/
 }
-.video {
+.video { /* video */
 	position: absolute;
 	bottom: 0;
 	/*width: 100%;
@@ -113,75 +130,19 @@ body {
 	left: 35%;
 	top: 85%;
 	width: 62%;
-	height: 10%;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
-	visibility: hidden;
+	justify-content: center; /*x*/
+	align-items: center; /*y*/
 }
 .controller > .button {
-	position: relative;
+	/*position: relative;
 	left: 0;
-	top: 10%;
+	top: 10%;*/
 	width: 15%;
 	height: 80%;
 	margin-left: 2vh;
-	display: flex;
-	align-items: center; /*y*/
-	justify-content: center; /*x*/
-}
-.button.call_end {
-	background-color: rgb(255, 56, 56);
-}
-.incoming_call_container {
-	position: absolute;
-	left: 35vw;
-	top: 5vw;
-	width: 60vw;
-	height: max-content;
-	padding-bottom: 2vh;
-	visibility: hidden;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	align-items: center; /*y*/
-	justify-content: center; /*x*/
-}
-.incoming_call_item {
-	position: relative;
-	left: 0vh;
-	top: 0vh;
-	width: 96%;
-	height: 10vh;
-	margin-top: 2vh;
-	display: flex;
-	align-items: center;
-}
-.button.accept {
-	display: flex;
-	position: absolute;
-	right: 19%;
-	top: 10%;
-	width: 15%;
-	height: 80%;
-	background-color: rgb(56, 255, 56);
-}
-.button.decline {
-	display: flex;
-	position: absolute;
-	right: 2%;
-	top: 10%;
-	width: 15%;
-	height: 80%;
-	background-color: rgb(255, 56, 56);
-}
-.button.theme {
-	position: absolute;
-	left: 94vw;
-	top: 94vh;
-	width: 6vw;
-	height: 6vh;
-	visibility: hidden;
 }
 
 .button {
@@ -205,3 +166,45 @@ body {
 		transform: scale(100%);
 	}
 }*/
+
+.call_make, .call_accept, .call_end, .call_decline {
+	height: 80%;
+}
+.button.call_make, .button.call_accept {
+	background-color: rgb(80, 255, 80);
+}
+.button.call_end, .button.call_decline {
+	background-color: rgb(255, 80, 80);
+}
+.button.call_make {
+	position: absolute;
+	right: 2%;
+	/*top: 0;*/
+	width: max-content;
+	padding: 1vh;
+}
+.button.call_end {
+}
+.button.call_accept, .button.call_decline {
+	display: flex;
+	position: absolute;
+	top: 10%;
+	width: 15%;
+}
+.button.call_accept {
+	right: 19%;
+}
+.button.call_decline {
+	right: 2%;
+}
+.button.theme {
+	position: absolute;
+	left: 94vw;
+	top: 94vh;
+	width: 6vw;
+	height: 6vh;
+	visibility: hidden;
+}
+.list_video_container::-webkit-scrollbar {
+	background-color: rgb(136, 136, 136);
+}

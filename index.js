@@ -17,7 +17,7 @@ const __dirname = path.dirname(__filename);
 const peerServer = peer.ExpressPeerServer(server, {
 	/*proxied: true,*/
 	debug: 3,
-	path: '/call',
+	path: '/peer',
 	port: 443, //8000 //443
 	ssl: {}
 });

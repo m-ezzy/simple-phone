@@ -11,20 +11,22 @@
 <body>
 	<div id="container">
 		<div class="brand">
-			simple phone
+			simple
 		</div>
 		<form id="log_in" name="form_log_in" method="POST" action="auth/log_in">
 			user name : <input type="text" name="user_name" />
 			pass word : <input type="text" name="pass_word" />
 			<input type="submit" value="log in" />
 		</form>
-		<!--
-		<div id="sign_up">
-			player name : <input type="text" id ="sign_up_user_name">
+		<form id="sign_up" name="form_sign_up" method="POST" action="auth/sign_up">
+			user name : <input type="text" id ="sign_up_user_name">
 			pass word : <input type="text" id ="sign_up_pass_word">
-			<div class="button" onclick="handle_click_sign_up()"> sign up </div>
+			<input type="submit" value="sign up" />
+			<!--<div class="button" onclick="handle_click_sign_up()"> sign up </div>-->
 		</div>
-		-->
+		<div class="brand">
+			phone
+		</div>
 	</div>
 
 	<script defer src="scripts/auth.js"></script>

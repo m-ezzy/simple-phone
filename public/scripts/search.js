@@ -1,5 +1,5 @@
 async function search() {
-	document.getElementById("search_results").innerHTML = "";
+	document.getElementsByClassName("list search")[0].innerHTML = "";
 
 	let q = document.getElementById("text_search").value;
 	if (q == "") { return; }
@@ -11,18 +11,6 @@ async function search() {
 	if (Object.keys(data).length == 0) { return; }
 
 	Object.values(data).forEach(v => {
-		let div = document.createElement("div");
-		let button = document.createElement("div");
-		let text = document.createTextNode(v.user_name);
-		let text2 = document.createTextNode("call");
-
-		div.className = "search_item";
-		button.className = "button call_make";
-		button.setAttribute("onclick", `make_call('${v.user_name}')`);
-
-		button.appendChild(text2);
-		div.appendChild(text);
-		div.appendChild(button);
-		document.getElementById("search_results").appendChild(div);
+		add_item_search(v);
 	});
 }
