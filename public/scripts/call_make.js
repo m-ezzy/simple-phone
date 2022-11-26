@@ -1,4 +1,7 @@
 function call_make(un2, directly) {
+	if (Object.keys(conn).includes(un2)) {
+		return;
+	}
 	add_item_video_container(un2);
 	document.getElementsByClassName("controller")[0].style.visibility = "visible";
 

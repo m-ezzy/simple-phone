@@ -125,6 +125,10 @@ canvas {
 	display: flex;
 	/*object-fit: contain;*/
 }
+video {
+	transform: rotateY(180deg); /* both transforms work */
+	/*transform: scale(-1, 1);*/
+}
 .controller {
 	position: absolute;
 	left: 35%;

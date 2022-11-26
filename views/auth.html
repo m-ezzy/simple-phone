@@ -13,17 +13,22 @@
 		<div class="brand">
 			simple
 		</div>
-		<form id="log_in" name="form_log_in" method="POST" action="auth/log_in">
+		<div class="form-switcher blur-effect">
+			<div class="blur-effect" onclick="switch_forms('log_in')"> log in </div>
+			<div class="blur-effect" onclick="switch_forms('sign_up')"> sign up </div>
+			<div class="a"></div>
+		</div>
+		<form class="blur-effect" id="log_in" name="form_log_in" method="POST" action="auth/log_in">
 			user name : <input type="text" name="user_name" />
 			pass word : <input type="text" name="pass_word" />
 			<input type="submit" value="log in" />
 		</form>
-		<form id="sign_up" name="form_sign_up" method="POST" action="auth/sign_up">
-			user name : <input type="text" id ="sign_up_user_name">
-			pass word : <input type="text" id ="sign_up_pass_word">
+		<form class="blur-effect" id="sign_up" name="form_sign_up" method="POST" action="auth/sign_up">
+			user name : <input type="text" id ="sign_up_user_name" />
+			pass word : <input type="text" id ="sign_up_pass_word" />
 			<input type="submit" value="sign up" />
 			<!--<div class="button" onclick="handle_click_sign_up()"> sign up </div>-->
-		</div>
+		</form>
 		<div class="brand">
 			phone
 		</div>
