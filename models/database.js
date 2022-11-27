@@ -19,6 +19,7 @@ let db_user_name = "admin";
 let db_pass_word = "admin123456";
 let db_name = "database_2";
 
+console.log(process.env.RDS_HOSTNAME, process.env.RDS_USERNAME, process.env.RDS_PASSWORD, process.env.RDS_PORT);
 
 var db = mysql.createConnection({
 	host: server_name,
