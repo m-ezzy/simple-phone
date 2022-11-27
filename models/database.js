@@ -14,10 +14,10 @@ let db_pass_word = "Ttkr?a**ugrP445";
 let db_name = "freedb_skyland";
 */
 
-let server_name = "database-1.cqxkxiop2cfl.ap-northeast-1.rds.amazonaws.com";
+let server_name = "database-2.cqxkxiop2cfl.ap-northeast-1.rds.amazonaws.com";
 let db_user_name = "admin";
 let db_pass_word = "admin123456";
-let db_name = "database-1";
+let db_name = "database_2";
 
 
 var db = mysql.createConnection({
